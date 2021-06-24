@@ -88,7 +88,8 @@ h6 {
 button {
     margin: 0 5px;
     border: none;
-    outline: none;
+    outline: 0;
+    outline-offset: 0;
     background-color: transparent;
 }
 
