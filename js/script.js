@@ -24,15 +24,15 @@ function word() {
                     units = parseInt(result % 100 % 10),
                     tens === 0 && units === 0 ? (numberWords = arr[3][hundreds - 1]) :
                     (tens === 1 ? (numberWords = arr[3][hundreds - 1] + ' ' + arr[1][units]) :
-                    (tens > 1 && units === 0 ? (numberWords = arr[3][hundreds - 1] + ' ' + arr[2][tens-2]) :
-                    (tens === 0 && units !== 0 ? (numberWords = arr[3][hundreds - 1] + ' ' + arr[0][units]) :
-                        (numberWords = arr[3][hundreds - 1] + ' ' + arr[2][tens - 2] + ' ' + arr[0][units]))))) :
+                        (tens > 1 && units === 0 ? (numberWords = arr[3][hundreds - 1] + ' ' + arr[2][tens - 2]) :
+                            (tens === 0 && units !== 0 ? (numberWords = arr[3][hundreds - 1] + ' ' + arr[0][units]) :
+                                (numberWords = arr[3][hundreds - 1] + ' ' + arr[2][tens - 2] + ' ' + arr[0][units]))))) :
                 (parseInt(result / 10) > 0 ?
                     (tens = parseInt(result / 10),
                         units = parseInt(result % 10),
                         tens === 1 ? (numberWords = arr[1][units]) :
-                        (tens > 1 && units === 0 ? (numberWords = arr[2][tens-2]) :
-                        (numberWords = arr[2][tens - 2] + ' ' + arr[0][units]))) :
+                        (tens > 1 && units === 0 ? (numberWords = arr[2][tens - 2]) :
+                            (numberWords = arr[2][tens - 2] + ' ' + arr[0][units]))) :
                     (numberWords = arr[0][result]))) :
 
             (parseInt(Math.abs(result) / 100) > 0 ?
@@ -41,21 +41,20 @@ function word() {
                     units = parseInt(Math.abs(result) % 100 % 10),
                     tens === 0 && units === 0 ? (numberWords = 'минус ' + arr[3][hundreds - 1]) :
                     (tens === 1 ? (numberWords = 'минус ' + arr[3][hundreds - 1] + ' ' + arr[1][units]) :
-                    (tens > 1 && units === 0 ? (numberWords = 'минус ' + arr[3][hundreds - 1] + ' ' + arr[2][tens-2]) :
-                    (tens === 0 && units !== 0 ? (numberWords = 'минус ' + arr[3][hundreds - 1] + ' ' + arr[0][units]) :
-                        (numberWords = 'минус ' + arr[3][hundreds - 1] + ' ' + arr[2][tens - 2] + ' ' + arr[0][units]))))) :
+                        (tens > 1 && units === 0 ? (numberWords = 'минус ' + arr[3][hundreds - 1] + ' ' + arr[2][tens - 2]) :
+                            (tens === 0 && units !== 0 ? (numberWords = 'минус ' + arr[3][hundreds - 1] + ' ' + arr[0][units]) :
+                                (numberWords = 'минус ' + arr[3][hundreds - 1] + ' ' + arr[2][tens - 2] + ' ' + arr[0][units]))))) :
                 (parseInt(Math.abs(result) / 10) > 0 ?
                     (tens = parseInt(Math.abs(result) / 10),
                         units = parseInt(Math.abs(result) % 10),
                         tens === 1 ? (numberWords = 'минус ' + arr[1][units]) :
-                        (tens > 1 && units === 0 ? (numberWords = 'минус ' + arr[2][tens-2]) :
-                        (numberWords = 'минус ' + arr[2][tens - 2] + ' ' + arr[0][units]))) :
+                        (tens > 1 && units === 0 ? (numberWords = 'минус ' + arr[2][tens - 2]) :
+                            (numberWords = 'минус ' + arr[2][tens - 2] + ' ' + arr[0][units]))) :
                     (numberWords = 'минус ' + arr[0][Math.abs(result)]))));
 }
 
 // Функця вывода сообщения игроку
 function innerValue() {
-    result = Math.floor((minValue + maxValue) / 2);
     words = word(result);
 
     function getRandomInt(max) {
@@ -125,12 +124,8 @@ document.getElementById('cancelTwo').addEventListener('click', function () {
 
 document.getElementById('makeYes').addEventListener('click', function () {
     document.getElementById('makeNumber').style.display = 'none';
-    document.getElementById('playGame').style.display = 'inline-block';
-})
-
-document.getElementById('makeYes').addEventListener('click', function () {
-    document.getElementById('makeNumber').style.display = 'none';
     document.getElementById('answerNumber').innerHTML = 'Вопрос № ' + orderNumber;
+    result = Math.floor((minValue + maxValue) / 2);
     innerValue();
     document.getElementById('playGame').style.display = 'inline-block';
 })
@@ -183,7 +178,7 @@ document.getElementById('victory').addEventListener('click', function () {
 
 document.getElementById('less').addEventListener('click', function () {
     maxValue = result;
-    if (minValue == maxValue || maxValue == upperValue) {
+    if (minValue === maxValue || maxValue === upperValue) {
         function getRandomInt(max) {
             return Math.floor(Math.random() * max);
         }
@@ -193,28 +188,30 @@ document.getElementById('less').addEventListener('click', function () {
         document.getElementById('playGame').style.display = 'none';
         document.getElementById('victorySpeech').style.display = 'inline-block';
     } else {
-        orderNumber++;
-        document.getElementById('answerNumber').innerHTML = 'Вопрос № ' + orderNumber;
-        innerValue();
-        upperValue = maxValue;   
-}
-})
-
-document.getElementById('more').addEventListener('click', function () {
-    minValue = result;
-    if (minValue == maxValue || minValue == bottomValue) {
-        function getRandomInt(max) {
-            return Math.floor(Math.random() * max);
-        }
-        question = getRandomInt(2);
-        question == 0 ? (document.getElementById('victoryText').innerHTML = 'А вы меня точно не обманули?') :
-            (document.getElementById('victoryText').innerHTML = `Я сдаюсь...`);
-        document.getElementById('playGame').style.display = 'none';
-        document.getElementById('victorySpeech').style.display = 'inline-block';
-    } else {
+        result = Math.floor((minValue + maxValue) / 2);
         orderNumber++;
         document.getElementById('answerNumber').innerHTML = 'Вопрос № ' + orderNumber;
         innerValue();
         bottomValue = minValue;
+    }
+})
+
+document.getElementById('more').addEventListener('click', function () {
+    minValue = result;
+    if (maxValue === minValue || minValue === bottomValue) {
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+        question = getRandomInt(2);
+        question == 0 ? (document.getElementById('victoryText').innerHTML = 'А вы меня точно не обманули?') :
+            (document.getElementById('victoryText').innerHTML = `Я сдаюсь...`);
+        document.getElementById('playGame').style.display = 'none';
+        document.getElementById('victorySpeech').style.display = 'inline-block';
+    } else {
+        result = Math.ceil((minValue + maxValue) / 2);
+        orderNumber++;
+        document.getElementById('answerNumber').innerHTML = 'Вопрос № ' + orderNumber;
+        innerValue();
+        upperValue = maxValue;
     }
 })
