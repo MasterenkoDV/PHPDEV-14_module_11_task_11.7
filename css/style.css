@@ -34,15 +34,6 @@ h4,
 h6 {
     margin: 0;
     padding: 0;
-    border: none !important;
-    outline: none !important;
-    outline-width: 0 !important;
-    -webkit-touch-callout: none !important;
-    -webkit-user-select: none !important;
-    -khtml-user-select: none !important;
-    -moz-user-select: none !important;
-    -ms-user-select: none !important;
-    user-select: none !important;
 }
 
 h1 {
@@ -105,17 +96,11 @@ button {
 
 button:active, 
 button:hover, 
-button:focus,
-button::-moz-focus-inner {
-    border: none !important;
-    outline: none !important;
-    outline-width: 0 !important;
-    -webkit-touch-callout: none !important;
-    -webkit-user-select: none !important;
-    -khtml-user-select: none !important;
-    -moz-user-select: none !important;
-    -ms-user-select: none !important;
-    user-select: none !important;
+button:focus {
+    border: none;
+    outline: 0;
+    outline-offset: 0;
+    background-color: transparent;
 }
 
 .restart {
