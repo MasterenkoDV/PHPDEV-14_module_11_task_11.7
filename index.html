@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Угадайка</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+    <main>
+        <div class="startGame" id="startGame">
+            <div class="greeting" id="greeting">
+                <p>
+                    <h4>Добро пожаловать в игру <b style="color: rgb(184, 18, 27);">"Угадайка"</b></h4>
+                    <br>
+                    <h6>Для начала игры нажмите на кнопку</h6>
+                    <h1>&#9660;</h1>
+                </p>
+                <div class="btnStart" id="btnStart">
+                    <button class="start" id="start">
+                        <h4><b style="color: rgb(32, 128, 53);">СТАРТ</b></h4>
+                    </button>
+                </div>
+            </div>
+            <div class="rulesGame" id="rulesGame">
+                <h4><b style="color: rgb(184, 18, 27);">Правила игры</b></h4>
+                <br>
+                <h6>
+                    <b style="color: rgb(32, 128, 53);">Ваша задача</b> - загадать 3-х значное число.<br>
+                    <b style="color: rgb(32, 128, 53);">Наша задача</b> - угадать загаданное число.<br><br>
+                </h6>
+                <h4><b>Играем?</b></h4><br>
+                <div>
+                    <button class="startYes" id="startYes">
+                        <h4><b style="color: rgb(32, 128, 53);">ДА</b></h4>
+                    </button>
+                    <button class="startNo" id="startNo">
+                        <h4><b style="color: rgb(184, 18, 27);">НЕТ</b></h4>
+                    </button>
+                </div>
+            </div>
+            <div class="initialValueOne" id="initialValueOne">
+                <h4>Введите <b style="color: rgb(32, 128, 53);">минимальное</b> знание числа для игры</h4><br>
+                <input type="text" class="value" id="valueOne" value="0"><br>
+                <p>
+                    <h6><i class="alertValue" id="alertValueOne"> </i></h6>
+                </p>
+                <button class="inputOne" id="inputOne">
+                    <h4><b style="color: rgb(32, 128, 53);">ДА</b></h4>
+                </button>
+                <button class="cancelOne" id="cancelOne">
+                    <h4><b style="color: rgb(184, 18, 27);">ОТМЕНА</b></h4>
+                </button>
+            </div>
+            <div class="initialValueTwo" id="initialValueTwo">
+                <h4>Введите <b style="color: rgb(32, 128, 53);">максимальное</b> знание числа для игры</h4><br>
+                <input type="text" class="value" id="valueTwo" value="999"><br>
+                <p>
+                    <h6><i class="alertValue" id="alertValueTwo"></i></h6>
+                </p>
+                <button class="inputTwo" id="inputTwo">
+                    <h4><b style="color: rgb(32, 128, 53);">ДА</b></h4>
+                </button>
+                <button class="cancelTwo" id="cancelTwo">
+                    <h4><b style="color: rgb(184, 18, 27);">ОТМЕНА</b></h4>
+                </button>
+            </div>
+            <div class="makeNumber" id="makeNumber">
+                <h4 class="makeNumberText" id="makeNumberText"></h4><br>
+                <h4><b>Загадали?</b></h4><br>
+                <button class="makeYes" id="makeYes">
+                    <h4><b style="color: rgb(32, 128, 53);">ДА</b></h4>
+                </button>
+                <button class="makeNo" id="makeNo">
+                    <h4><b style="color: rgb(184, 18, 27);">НЕТ</b></h4>
+                </button>
+            </div>
+            <div class="endGame" id="endGame">
+                <h4>Хотите закончить игру?</h4><br>
+                <button class="endYes" id="endYes">
+                    <h4><b style="color: rgb(184, 18, 27);">ДА</b></h4>
+                </button>
+                <button class="endNo" id="endNo">
+                    <h4><b style="color: rgb(32, 128, 53);">НЕТ</b></h4>
+                </button>
+            </div>
+        </div>
+        <div class="playGame" id="playGame">
+            <div class="answerText" id="answerText">
+                <h6><b class="answerNumber" id="answerNumber"></b></h6><br>
+                <h4 class="answer" id="answer"></h4>
+            </div>
+            <button class="less" id="less">
+                <h6 style="color: rgb(184, 18, 27);"><br>МЕНЬШЕ<br>&#9660;</h6>
+            </button>
+            <button class="victory" id="victory">
+                <h4><b style="color: rgb(32, 128, 53);">ВЕРНО</b></h4>
+            </button>
+            <button class="more" id="more">
+                <h6 style="color: rgb(184, 18, 27);">&#9650;<br>БОЛЬШЕ<br><br></h6>
+            </button>
+        </div>
+        <div class="victorySpeech" id="victorySpeech">
+            <p>
+                <h4><b id="victoryText"></b></h4>
+            </p>
+        </div>
+        <div>
+            <button class="restart" id="restart">
+                <h6><b style="color: rgb(184, 18, 27);">ЗАНОВО</b></h6>
+            </button>
+        </div>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

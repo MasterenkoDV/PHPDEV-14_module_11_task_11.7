@@ -1,0 +1,114 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', monospace;
+
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+}
+
+body:before {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+    content: "";
+}
+
+main {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 auto;
+    /*padding: 40% auto;*/
+    width: 95%;
+    height: 30%;
+}
+
+h1,
+h4,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+h6 {
+    font-size: 0.8em;
+}
+
+.greeting {
+    display: inline-block;
+}
+
+.rulesGame,
+.initialValueOne,
+.initialValueTwo,
+.makeNumber,
+.endGame,
+.playGame,
+.restart,
+.victorySpeech {
+    display: none;
+}
+
+.value {
+    text-align: center;
+}
+
+.playGame {
+    text-align: center;
+}
+
+.playGame:before {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    content: "";
+}
+
+.playGame button {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 5px;
+}
+
+button {
+    margin: 0 5px;
+    border: none;
+    background-color: transparent;
+}
+
+.restart {
+    border: none;
+    background-color: transparent;
+    margin: 5%;
+    font-size: 0.8em;
+}
+
+.answer {
+    margin-bottom: 10%;
+}
+
+.victory {
+    font-size: 1em;
+}
+
+.answerText {
+    margin: -20px 0 0 0;
+    padding: 0;
+    height: 80px;
+}
