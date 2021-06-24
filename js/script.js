@@ -158,6 +158,8 @@ document.getElementById('restart').addEventListener('click', function () {
     orderNumber = 1;
     upperValue = '';
     bottomValue = '';
+    valueOne.value = 0;
+    valueTwo.value = 999;
 })
 
 document.getElementById('victory').addEventListener('click', function () {
